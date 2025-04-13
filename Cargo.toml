@@ -10,13 +10,19 @@ edition = "2021"
 [workspace.dependencies]
 criterion = "0.4"
 rand = "0.8.5"
+pyo3 = { version = "0.21.2", features = ["extension-module"] }
 
 [package]
 name = "othello"
 version.workspace = true
 edition.workspace = true
 
+[lib]
+name = "othello_rust"
+crate-type = ["cdylib"]
+
 [dependencies]
-rand.workspace = true
+pyo3 = { version = "0.21.2", features = ["extension-module"] }
 othello_ai = { path = "crates/othello_ai" }
 othello_game = { path = "crates/othello_game" }
+rand = "0.8.5"
